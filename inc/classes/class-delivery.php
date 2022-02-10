@@ -106,7 +106,7 @@ class delivery {
         ) );
 
         // return "true" when customer has already at least one order (false if not)
-        return count($customer_orders) > 0 ? true : false; 
+        return count($customer_orders) == 0 ? true : false; 
     }
 
     /**
@@ -115,7 +115,7 @@ class delivery {
      */
 
     function user_first_order_discount( $cart ) {
-
+         
         if($this->is_user_first_order() || !is_user_logged_in()){
             $discount = $cart->subtotal * 0.4;      
             $cart->add_fee( __( '40% Discount for first order', 'pizza-pool' ) , -$discount );

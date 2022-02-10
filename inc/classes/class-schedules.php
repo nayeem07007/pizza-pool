@@ -36,8 +36,7 @@ class schedules {
 
             $opning_hour_bet = $this->pool_schedules()[$dt->format('l')];
             $opning_hour = $dt->format('H');
-            echo '<pre>';
-            echo '</pre>';
+
             $time_between = explode('-', $opning_hour_bet);
             $time_wrange = range($time_between[0], $time_between[1]);
             
@@ -49,7 +48,7 @@ class schedules {
                     $open_time = '4MP';
                 }
                 $today = $dt->format('l');
-                return esc_html__("$today open time $open_time and Close Time 10 PM", 'pizza-pool');
+                return esc_html__("$today: open time $open_time and Close Time 10 PM", 'pizza-pool');
             }
         }else{
             return esc_html__('Today Resturent Close', 'pizza-pool');

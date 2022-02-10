@@ -24,8 +24,10 @@ function pizza_pool_language() {
 }
 // autoload class 
 require_once PIZZA_POOL_DIR.'/inc/init.php';
+
 // load required css and js 
-new pizza\pool\assets();
+  new pizza\pool\assets();
+
 //  load food delivery options
 new \pizza\pool\delivery;
 
