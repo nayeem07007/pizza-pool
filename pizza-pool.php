@@ -32,5 +32,3 @@ require_once PIZZA_POOL_DIR.'/inc/init.php';
 new \pizza\pool\delivery;
 
 
-
-

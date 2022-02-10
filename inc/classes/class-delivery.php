@@ -106,7 +106,7 @@ class delivery {
         ) );
 
         // return "true" when customer has already at least one order (false if not)
-        return count($customer_orders) == 0 ? true : false; 
+        return empty($customer_orders) ? 1 : 0; 
     }
 
     /**
