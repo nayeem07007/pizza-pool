@@ -17,5 +17,3 @@ function my_autoloader($class) {
 
 spl_autoload_register('my_autoloader');
 
-
-new \pizza\pool\delivery;

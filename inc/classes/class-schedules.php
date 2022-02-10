@@ -11,7 +11,7 @@ class schedules {
          */
         $schedules = [
             'Thursday'=> '16-22',
-            'Friday'=> '12-0',
+            'Friday'=> '12-22',
             'Saturday'=> '12-22',
         ];
         return $schedules;
