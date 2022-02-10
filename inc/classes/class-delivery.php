@@ -23,20 +23,20 @@ class delivery {
       
     }
     public function add_dilavery_option_fields($checkout) {
-        echo '<div id="message_fields">';
-        woocommerce_form_field( 'airport_pickup', array(
+        echo '<div id="pizza-pool-delivery-options-filds">';
+        woocommerce_form_field( 'pool-delivery-option', [
             'type'          => 'select',
-            'class'         => array('airport_pickup form-row-wide'),
-            'label'         => __('Would you like us to arrange transportation from the airport to your starting hotel?'),
+            'class'         => ['pool-delivery-option form-row-wide'],
+            'label'         => esc_html__('Please select your delivery Type'),
             'required'    => true,
-            'options'     => array(
+            'options'     => [
                             '10_dine-in'=>'Dine-in',
                             '0_takeaway' => __('Takeaway'),
                             '0_Delivery' => __('Delivery')
-            ),
-            'default' => 'N'), 
-            $checkout->get_value( 'airport_pickup' ));
-	echo '</div>';
+                            ],
+            'default' => '0_Delivery'], 
+            $checkout->get_value( 'pool-delivery-option' ));
+	    echo '</div>';
     }
     function woo_add_cart_fee( $cart ){
         if ( ! $_POST || ( is_admin() && ! is_ajax() ) ) {
@@ -49,9 +49,9 @@ class delivery {
             $post_data = $_POST;
         }
     
-        if (isset($post_data['airport_pickup'])) {
+        if (isset($post_data['pool-delivery-option'])) {
             
-            $get_discount_val = explode('_', $post_data['airport_pickup']);
+            $get_discount_val = explode('_', $post_data['pool-delivery-option']);
             $duduct_numb = $get_discount_val[0];
             $value_text = ucfirst(end($get_discount_val));
           
@@ -87,7 +87,7 @@ class delivery {
 
         if($this->is_user_first_order() || !is_user_logged_in()){
             $discount = $cart->subtotal * 0.4;      
-            $cart->add_fee( __( '40% Discount for first order', 'yourtext-domain' ) , -$discount );
+            $cart->add_fee( __( '40% Discount for first order', 'pizza-pool' ) , -$discount );
         }      
       }
     
